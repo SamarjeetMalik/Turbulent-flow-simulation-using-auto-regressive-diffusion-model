@@ -1,11 +1,10 @@
-# Benchmarking Autoregressive Conditional Diffusion Models for Turbulent Flow Simulation
-This repository contains the source code for the paper [Benchmarking Autoregressive Conditional Diffusion Models for Turbulent Flow Simulation](https://arxiv.org/abs/2309.01745) by [Georg Kohl](https://ge.in.tum.de/about/georg-kohl/), [Liwei Chen](https://ge.in.tum.de/about/dr-liwei-chen/), and [Nils Thuerey](https://ge.in.tum.de/about/n-thuerey/). Our work benchmarks neural operators for the prediction of turbulent flow fields from an initial condition across a range of architectures:
+# Turbulent flow simulationusing auto regressive diffusion models
 
 1. **Autoregressive conditional diffusion models (ACDMs):** This method relies on the DDPM approach, a class of generative models based on a parameterized Markov chain. They can be trained to learn the conditional distribution of a target variable given a conditioning. In our case, the target variable is the flow field at the next time step, and the conditioning is the flow field at the current time step, i.e., the simulation trajectory is created via autoregressive unrolling of the model. We showed that ACDMs can accurately and probabilistically predict turbulent flow fields, and that the resulting trajectories align with the statistics of the underlying physics. Furthermore, ACDMs can generalize to flow parameters beyond the training regime, and exhibit high temporal rollout stability, without compromising the quality of generated samples.
 
 2. **U-Net Variants**: We consider a range of different training variants of the backbone U-Net used in ACDM. It can be trained as a classic next-step predictor, with unrolled training to improve the stability, or with additional training noise. Furthermore, we also implement [PDE-Refiner](https://arxiv.org/abs/2308.05732) based on this U-Net.
 
-3. **ResNets and Fourier Neural Operators**: Our source code also integrates [Dilated ResNets](https://arxiv.org/abs/2112.15275) and [Fourier Neural Operators](https://github.com/NeuralOperator/neuraloperator), as established flow prediction architectures.
+3. **ResNets and Fourier Neural Operators**: The source code also integrates [Dilated ResNets](https://arxiv.org/abs/2112.15275) and [Fourier Neural Operators](https://github.com/NeuralOperator/neuraloperator), as established flow prediction architectures.
 
 4. **Latent-Space Transformers**: Finally, we provide different implementation variants of latent-space transformers. These architectures contain an autoencoder to embed the flow states in a smaller latent space. A secondary transformer model computes updated latent spaces forward in time, that can be decoded to create flow trajectories. We train the combined architecture end-to-end.
 
