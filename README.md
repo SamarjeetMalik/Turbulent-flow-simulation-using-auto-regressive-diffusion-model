@@ -13,12 +13,6 @@
 
 -----------------------------------------------------------------------------------------------------
 
-## Simple ACDM Demonstration
-
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/tum-pbs/autoreg-pde-diffusion/blob/master/acdm-demo.ipynb)
-
-Using the button above, you can run a simple example notebook in Google Colab that demonstrates ACDM (a Google account is required). Instead, it is also possible to locally run the provided `acdm-demo.ipynb` file, by following the installation instructions in the next section and [running the notebook](https://docs.jupyter.org/en/latest/running.html) inside the created conda environment afterwards.
-
 
 ## Installation
 In the following, Linux is assumed as the OS but the installation on Windows should be similar.
