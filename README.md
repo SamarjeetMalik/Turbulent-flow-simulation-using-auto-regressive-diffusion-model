@@ -9,22 +9,7 @@
 4. **Latent-Space Transformers**: Finally, we provide different implementation variants of latent-space transformers. These architectures contain an autoencoder to embed the flow states in a smaller latent space. A secondary transformer model computes updated latent spaces forward in time, that can be decoded to create flow trajectories. We train the combined architecture end-to-end.
 
 
-All architectures are evaluated on three carefully designed data sets of varying difficulty:
 
-1. **Incompressible Wake Flow (*Inc*):** This relatively simple data set contains 91 incompressible wake flow trajectories simulated with PhiFlow at Reynolds numbers 100-1000. Each sequence contains 1300 temporal snapshots of pressure and velocity.
-
-<video width="auto" src="https://github.com/tum-pbs/autoreg-pde-diffusion/assets/16224924/e73db04e-d8fa-4164-a4bb-a0997d5a90ed"></video>
-
-2. **Transonic Cylinder Flow (*Tra*):** This data set contains 41 sequences of a two-dimensional transonic cylinder flow simulated with the fluid solver SU2. Each sequence has a different Mach number between 0.5 and 0.9 at Reynolds number 10000, making the flows in the transonic regime highly chaotic. All trajcetories feature 1000 temporal snapshots of pressure, density, and velocity.
-
-<video width="auto" src="https://github.com/tum-pbs/autoreg-pde-diffusion/assets/16224924/a08f4e1c-40df-466f-92ad-8a142ae1f337"></video>
-
-3. **Isotropic Turbulence (*Iso*):** This highly complex, underdetermined data set consists of 1000 two-dimensional sequences sliced from three-dimensional, isotropic turbulence simulations. The flows were computed with DNS and the raw data is provided by the Johns Hopkins Turbulence Database. Each sequence contains 1000 temporal snapshots of pressure and velocity, including the velocity z-component.
-
-<video width="auto" src="https://github.com/tum-pbs/autoreg-pde-diffusion/assets/16224924/3837f8ea-08ea-4e0f-af46-d3fc56e53a26"></video>
-
-
-Further information about this work can be also found at our [project website](https://ge.in.tum.de/publications/2023-acdm-kohl/). Feel free to contact us if you have questions or suggestions regarding our work or the source code provided here.
 
 -----------------------------------------------------------------------------------------------------
 
@@ -195,31 +180,4 @@ Ensure that the data set folder structure resulting from the data generation is 
 
 
 -----------------------------------------------------------------------------------------------------
-
-## Experiments on Extremely Long Rollouts
-On the *Inc* and *Tra* data sets dicussed above, we observed that it is possible to train models that are unconditionally stable and do not diverge, even after `200 000` rollout steps. Key criteria for training models with such stability are outlined [here](long-rollouts.md).
-
-
-
------------------------------------------------------------------------------------------------------
-
-## Citation
-If you use the source code, models, or data sets provided here, please consider citing our work:
-```
-@article{kohl2023_acdm,
-  author = {Georg Kohl and Li{-}Wei Chen and Nils Thuerey},
-  title = {Benchmarking Autoregressive Conditional Diffusion Models for Turbulent Flow Simulation},
-  journal = {arXiv},
-  year = {2023},
-  eprint = {2309.01745},
-  primaryclass = {cs},
-  publisher = {arXiv},
-  url = {https://doi.org/10.48550/arXiv.2309.01745},
-  doi = {10.48550/arXiv.2309.01745},
-  archiveprefix = {arxiv}
-}
-```
-
-## Acknowledgements
-This work was supported by the ERC Consolidator Grant *SpaTe* (CoG-2019-863850).
 
